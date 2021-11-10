@@ -1,0 +1,23 @@
+from Tkinter import*
+master=tk()
+group=labelFrame(master,text="Application form",padx=10,pady=10)
+group.pack(padx=10,pady=10)
+e1=Intvar()
+e2=stringvar()
+e3=stringvar()
+e4=stringvar()
+e5=Intvar()
+Label(group,text="Employee no:").grid(row=0,column=20)
+w=entry(group,textvariable=e1).grid(row=0,column=20)
+Label(group,text="Employee name:").grid(row=3,column=20)
+w=entry(group,textvariable=e2).grid(row=3,column=20)
+Label(group,text="Job name:").grid(row=5,column=20)
+w=entry(group,textvariable=e3).grid(row=5,column=20)
+Label(group,text="Department:").grid(row=7,column=20)
+w=entry(group,textvariable=e4).grid(row=7,column=20)
+Label(group,text="Salary:").grid(row=9,column=20)
+w=entry(group,textvariable=e5).grid(row=9,column=20)
+b1=button(group,text="Submit").pack()
+mainloop()
+
+
