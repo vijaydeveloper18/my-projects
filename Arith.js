@@ -1,0 +1,10 @@
+var result=10+20;
+console.log(result);
+result=result-5;
+console.log(result);
+result=result*2;
+console.log(result);
+result=result/5;
+console.log(result);
+result=result%1;
+console.log(result);
