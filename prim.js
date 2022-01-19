@@ -1,0 +1,10 @@
+var num=10;
+var num2=num1;
+var object=newObject();
+var object2=object1;
+num2=20;
+console.log('Num1:',num1);
+console.log('Num2:',num2);
+object2.newProp='By reference';
+console.log('obj1:',obj1);
+console.log('obg2:',obj2);
