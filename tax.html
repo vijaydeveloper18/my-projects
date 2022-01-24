@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax payment</title>
+    <script>
+        function tax(){
+            if(100000<=400000){
+                alert('40% of tax will be given');
+            }else if(500000<=800000){
+                alert('70% of tax will be given');
+            }
+            else{
+                alert('Tax will not given');
+            }
+        }
+    </script>
+</head>
+<body>
+    Enter your name<br>
+    <input type="text"  id="n1"/><br>
+    Enter your Annual income<br>
+    <input type="text"  id="a1" onclick="tax();"/><br>
+    <input type="button" value="submit" id="s1" onclick="tax();"/><br>
+</body>
+</html>
