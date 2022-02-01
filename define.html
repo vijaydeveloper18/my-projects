@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Define properties</title>
+    <script>
+        var lect = {};
+        lect.name='Suresh';
+        lect.id=45;
+        lect.join=3000
+        lect.dept='cse';
+        lect.sal=30000;
+        console.log(lect);
+        object.defineProperty(lect,{
+            name:{
+                value:'suresh'
+            },
+            id:{
+               value:45 
+            },
+            join:{
+                value:3000
+            },
+            dept:{
+                value:'cse'
+            },
+            sal:{
+                get:function(){
+                   return this.sal;    
+                },
+                set:function(newsal){
+                    if(this.join>2000){
+                        this.sal=newsal;
+                    }
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
