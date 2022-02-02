@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array methods</title>
+    <script>
+        var days=['tuesday','wednesday','thursday','saturday'];
+        document.write(days);
+        document.write(days.isarray());
+        console.log("push: ",days.push('sunday<br>'));
+        document.write(days.unshift('Monday<br>'));
+        document.write(days.shift('<br>'));
+        document.write(days.concat('weekends<br>'));
+        document.write(days.slice(3));
+        document.write(days.reverse());
+        document.write(days.join('--'));
+        document.write(days.fill('weekday<br>'));
+        var value=[10,2,7,34,43,62];
+        var tofind=value.find(x=>x>10);
+        document.write("find: <br>",tofind);
+        var fruits=['apple','orange','banana'];
+        document.write("findindex:  ",fruits.findindex());
+        document.write(fruits.includes("goa"));
+        var marks=[35,40,15,72,81];
+        function check(value){
+            return value>34;
+        }
+        console.log("array: ",marks);
+        console.log("everymark: ",marks.every(check));
+        console.log("everymark: ",marks.some(check));
+        console.log("everymark: ",marks.filter(check));
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
