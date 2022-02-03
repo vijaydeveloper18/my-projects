@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Number methods</title>
+</head>
+<body>
+    <div id="body">
+        <h2>welcome!</h2>
+    <script>
+        var x=30;
+        document.write("finite: ",isfinite(x));
+        document.write("integer: ",isinteger(x));
+        var test=989721;
+        console.log("expo-2: ",+test.toExponential(2));
+        var num=10.37124;
+        document.write("pre-2: ",+num.toprecision(3));
+        var x1=9.357;
+        document.write("fixed-2: ",+x1.tofixed(2));
+        document.write(parsefloat(x1));
+        var xy=100;
+        document.write("Number check: ",isNan(xy));
+
+    </script>
+    </div>
+</body>
+</html>
