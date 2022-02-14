@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoM</title>
+</head>
+<body>
+    <script>
+        function check(){
+            var frt=document.getElementsByName("fruit");
+            if(frt[1].checked){
+                alert("Orange is a citrus fruit");                
+            }else{
+                alert("Mango is not a citrus fruit");
+            }
+        }
+    </script>
+    Mango<input type="radio" name="fruit">
+    <br>
+    Orange<input type="radio" name="fruit">
+    
+</body>
+</html>
