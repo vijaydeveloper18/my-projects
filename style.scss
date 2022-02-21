@@ -1,0 +1,21 @@
+$app-color1:blue;
+$app-color2:green;
+$font-roboto:"Roboto",sans-serif;
+$alert-colors:(
+    primary:"red",
+    success:"green",
+    warning:"yellow"
+);
+
+html,body{
+    background:$app-color1;;
+}
+body>p{
+   font-family:$font-roboto;
+}
+.btn{
+    padding: 5px;
+    margin:8px;
+    background:map-get($alert-colors,"warning");
+}
+
