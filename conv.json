@@ -1,0 +1,4 @@
+var str='{"name":"ram","age":25}';
+var O=json.parse(str);
+alert(typeof(O));
+document.write(+O.name "age is" +O.age);
