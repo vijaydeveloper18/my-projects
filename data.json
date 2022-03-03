@@ -1,0 +1,7 @@
+var user={
+   "name":"ram kumar",
+   "age":25
+};
+var str=json.stringify(user);
+alert(typeof(str));
+document.write(str);
