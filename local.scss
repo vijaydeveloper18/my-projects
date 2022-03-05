@@ -1,0 +1,12 @@
+.btn{                //local block
+    margin-top:10px;
+    $app-color:orange;
+    background-color: $app-color;
+    border:none;
+}
+.btn{               //local block to change global
+    margin-top:10px;
+    $app-color:orange!global;
+    background-color: $app-color;
+    border:none;
+}
