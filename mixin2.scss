@@ -1,0 +1,9 @@
+@mixin img{
+    height:40%;
+    width:60%;
+    box-shadow:3px 3px 3px grey;
+}
+//To include body tag
+#body{
+    @include img();
+}
