@@ -1,0 +1,9 @@
+@mixin text{
+    font-size:20px;
+    font-weight: 300;
+    font-style: italic;
+}
+//To include text side
+#content{
+    @include text();
+}
