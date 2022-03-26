@@ -1,0 +1,11 @@
+$(document).ready(function(){
+    $('svg').mouseenter(function(){
+        $('circle').attr("fill","red");
+    });
+    $('svg').mouseleave(function(){
+        $('circle').attr("fill","blue");
+    });
+    $('svg').mousedown(function(){
+        $('circle').attr("fill","orange");
+    })
+})
