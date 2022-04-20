@@ -1,0 +1,10 @@
+$("#save").click(function(){
+    $.ajax({
+        URL:"db.php",
+        type:"post",
+        data:$("#frm").serialize(),
+        success:function(d){
+            alert(d);
+        }
+    });
+});
