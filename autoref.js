@@ -1,0 +1,15 @@
+$(document).ready(function(){
+    $("#save").click(function(){
+        $.ajax({
+            URL:"insert.php",
+            type:"post",
+            data:$("#frm").serialize(),
+            success:function(d){
+              $("#frm")[0].reset();
+            }
+        });
+    });
+    setInterval(function(){
+        $("#load").load("select.php").fadeIn('slow');
+    },1000);
+});
