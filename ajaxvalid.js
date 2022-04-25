@@ -1,0 +1,12 @@
+if(isValid==false){
+    e.preventdefault();
+}else{
+    $.ajax({
+        URL:"save.php",
+        type:"post",
+        data:$("#frm").serialize(),
+        success:function(data){
+            $('p').html(data);
+        }
+    });
+}
