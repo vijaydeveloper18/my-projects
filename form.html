@@ -1,0 +1,148 @@
+<html>
+    <head>
+        <title>Task 2</title>
+        <script type="text/javascript">
+     /* var jcount = 0;
+      var rcount = 0;
+      var gcount = 0;
+      var jsum;
+      var rsum; 
+      var gsum; */
+      var sum = 0;
+      var count = 0;
+      var avg = 0;   
+    
+    
+    function getGender(){
+        var radios = Array.from(document.getElementsByName("gender"));
+        radios.forEach(x=>{
+            console.log("ForEach:",x.value,x.checked);
+        });
+
+        for(i=0;i<radios.length;i++){
+            console.log("Forloop:",radios[i].value,radios[i].checked);
+        }
+
+       radios.map((x)=>{
+        console.log("Map method:",x.value,x.checked);
+       })
+    }
+    function getQual(){
+        var checkboxes = Array.from(document.getElementsByName("qual"));
+
+        checkboxes.forEach(x=>{
+            console.log("For each:",x.value,x.checked);
+        });
+
+        for(i=0;i<checkboxes.length;i++){
+            console.log("Forloop:",checkboxes[i].value,checkboxes[i].checked);
+        }
+        checkboxes.map((y)=>{
+            console.log("Map method:",y.value,y.checked);
+        })
+    }
+
+    function getdrop(){
+        var Dropdown = document.getElementById("dropqual").value;
+        console.log(Dropdown);
+    }
+
+    function average(){
+        var candidate = [
+            {
+                name:'Jenny',
+                age:15
+            },
+            {
+                name:'Ramesh',
+                age:25
+            },
+            {
+                name:'Jenny',
+                age:40
+            },
+            {
+                name:'Gandhi',
+                age:35
+            }
+        ];
+   /* var Javg = candidate.reduce(add,0)/jcount;
+        function add(jsum,candidate){
+           if(candidate.name=='Jenny'){
+            jsum = jsum + candidate.age;
+            jcount = jcount + 1;
+           }
+           return jsum;
+        }
+        console.log("Javg:",Math.round(Javg));
+
+    var Ravg = candidate.reduce(Radd,0)/rcount;
+    function Radd(rsum,candidate){
+        if(candidate.name=='Ramesh'){
+            rsum = rsum + candidate.age;
+            rcount = rcount + 1;
+        }
+        return rsum;
+    }
+    console.log("Ravg:",Math.round(Ravg));
+
+    var Gavg = candidate.reduce(Gadd,0)/gcount;
+    function Gadd(gsum,candidate){
+        if(candidate.name=='Gandhi'){
+            gsum = gsum + candidate.age;
+            gcount = gcount + 1;
+        }
+        return gsum;
+    }
+    console.log("Gavg:",Math.round(Gavg));*/
+    
+    var name = document.getElementById("name").value;
+    var person = candidate.filter(x=>x.name==name).map(x=>x.age);
+    var total = person.map((x)=>{
+        sum = sum + x;
+        count = count + 1;
+    });
+     var avg = Math.round(sum/count);
+    document.getElementById("show").innerHTML = name + "Average: " +avg;
+    
+    }
+
+
+
+
+        </script>
+    </head>
+    <body>
+        <label>Gender:</label>
+        <label>Male</label>
+        <input type="radio" name="gender" value="m">
+        <label>Female</label>
+        <input type="radio" name="gender" value="f">
+        <input type="button" value="Gender" onclick="getGender()"/>
+
+        <label>Qualification:</label>
+        <label>10th</label>
+        <input type="checkbox" name="qual" value="ten">
+        <label>12th</label>
+        <input type="checkbox" name="qual" value="twel">
+        <label>Diploma</label>
+        <input type="checkbox" name="qual" value="dip">
+        <label>B.E</label>
+        <input type="checkbox" name="qual" value="be">
+
+        <input type="button" value="Getqual" onclick="getQual()"/>
+
+        <select id="dropqual">
+          <option value="Mca">MCA</option>
+          <option value="Bca">BCA</option>
+          <option value="b.sc">B.sc</option>
+        </select>
+
+        <input type="button" value="drop" onclick="getdrop()"/>
+
+        <label>Name</label>
+        <input type="text" id="name">
+        <input type="button" value="Reduce" onclick="average()"/>
+        <p id="show"></p>
+    </body>
+</html>
