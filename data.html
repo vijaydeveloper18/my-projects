@@ -1,0 +1,340 @@
+<html>
+    <head>
+        <title>My record</title>
+        <script type="text/javascript">
+            var rteamMember=[];
+            var gteamMember=[];
+            var oteamMember=[];
+            var yteamMember=[];
+            var flag = false;
+            var EditIndex = -1;
+            var g;
+
+
+            function Raddmember(){
+               // rteamMember.push(candidate);
+                console.log(rteamMember);
+                insertdataOnTableteam();
+               }
+               function Gaddmember(){
+               // gteamMember.push(candidate);
+                //gteamMember.push(name);
+             
+                console.log(gteamMember);
+                insertdataOnTableteam();
+                
+               // var wrap = document.getElementById("wrap");
+               // wrap.innerHTML=gteamMember;
+                
+            }
+            function Oaddmember(){
+             //   oteamMember.push(candidate);
+                //oteamMember.push(name);
+                console.log(oteamMember);
+                insertdataOnTableteam();
+               // var text = document.getElementById("text");
+                //text.innerHTML=oteamMember;
+            } 
+            function Yaddmember(){
+               // yteamMember.push(candidate);
+                //yteamMember.push(name);
+                console.log(yteamMember);
+                insertdataOnTableteam();
+                //var prop = document.getElementById("prop");
+               // prop.innerHTML=yteamMember;
+                
+            }
+            
+            function insertdataOnTableteam(){
+                var redtable = "";
+               // var greentable = "";
+                //var orangetable = "";
+                //var yellowtable = ""; 
+                var name = document.getElementById("name").value;
+                var age = document.getElementById("age").value;
+                var addr = document.getElementById("addr").value;
+                var city = document.getElementById("city").value;
+                var gender = g;
+               // var gender = document.querySelector("input[name=gender]:checked").value;
+                var qual = Array.from(document.querySelectorAll('input[type="checkbox"]'))
+                .filter((checkbox)=>checkbox.checked).map((checkbox)=>checkbox.value);
+               const candidate = {
+                    name:name,
+                    age:age,
+                    address:addr,
+                    city:city,
+                    gender:gender,
+                    qual:qual
+
+                }; 
+          
+
+               if(window.flag==false){
+                console.log("true condition");
+                rteamMember.push(candidate);
+               }else{
+                console.log("False condition");
+                rteamMember[EditIndex] = candidate;
+
+                window.flag = false;
+               }
+               
+               rteamMember.map((x)=>{
+                    redtable = redtable + `<tr>`;
+                    redtable = redtable + `<td>${x.name}</td>`;
+                    redtable = redtable + `<td>${x.age}</td>`;
+                    redtable = redtable + `<td>${x.address}</td>`;
+                    redtable = redtable + `<td>${x.city}</td>`;
+                    redtable = redtable + `<td>${x.gender}</td>`;
+                    redtable = redtable + `<td>${x.qual}</td>`;
+                    redtable = redtable + `<td><input type="button" value="Delete" onclick="remove(this)"/></td>`;   
+                    redtable = redtable + `<td><input type="button" value="Edit" onclick="editData(this)"/></td>`;   
+                    redtable += `</tr>`;
+                });
+                document.getElementById("red").innerHTML = redtable;
+             
+            
+            }
+           
+            function remove(id){
+                var i = id.parentNode.parentNode.rowIndex;
+                document.getElementById("table1").deleteRow(i);
+                rteamMember.splice(i-1,1);
+                //red.remove(i);
+            }
+            function editData(id){
+            window.flag = true;
+            EditIndex = id.parentNode.parentNode.rowIndex - 1;
+            var Redteam = rteamMember[EditIndex];
+            console.log(rteamMember[EditIndex]);
+            document.getElementById("name").value = Redteam.name;
+            document.getElementById("age").value = Redteam.age;
+            document.getElementById("addr").value = Redteam.address;
+            document.getElementById("city").value = Redteam.city;
+            document.querySelector("input[name=gender]:checked").value = Redteam.gender;
+           // document.getElementsByName("q").value = Redteam.qual;
+            }
+            function radio(gender){
+                g = gender;
+            }
+            function greeneditData(id){
+                window.flag = true;
+            EditIndex = id.parentNode.parentNode.rowIndex - 1;
+            var Greenteam = gteamMember[EditIndex];
+            console.log(gteamMember[EditIndex]);
+            document.getElementById("name").value = Greenteam.name;
+            document.getElementById("age").value = Greenteam.age;
+            document.getElementById("addr").value = Greenteam.address;
+            document.getElementById("city").value = Greenteam.city;
+            }
+            function OrangeEditData(id){
+                window.flag = true;
+            EditIndex = id.parentNode.parentNode.rowIndex - 1;
+            var Orangeteam = oteamMember[EditIndex];
+            console.log(oteamMember[EditIndex]);
+            document.getElementById("name").value = Orangeteam.name;
+            document.getElementById("age").value = Orangeteam.age;
+            document.getElementById("addr").value = Orangeteam.address;
+            document.getElementById("city").value = Orangeteam.city;
+            }
+            function yellowEditData(id){
+                window.flag = true;
+            EditIndex = id.parentNode.parentNode.rowIndex - 1;
+            var Yellowteam = yteamMember[EditIndex];
+            console.log(yteamMember[EditIndex]);
+            document.getElementById("name").value = Yellowteam.name;
+            document.getElementById("age").value = Yellowteam.age;
+            document.getElementById("addr").value = Yellowteam.address;
+            document.getElementById("city").value = Yellowteam.city;
+            }
+            function removeGreen(id){
+                var i = id.parentNode.parentNode.rowIndex;
+                document.getElementById("table2").deleteRow(i);
+                gteamMember.splice(i-1,1);
+            }
+            function removeOrange(id){
+                var i = id.parentNode.parentNode.rowIndex;
+                document.getElementById("table3").deleteRow(i);
+                oteamMember.splice(i-1,1);
+            }
+            function removeYellow(id){
+                var i = id.parentNode.parentNode.rowIndex;
+                document.getElementById("table4").deleteRow(i);
+                yteamMember.splice(i-1,1);
+            }
+           /* function greenviewdata(gteamMember){
+                var greentable =" ";
+                document.getElementById("green").innerHTML = '';
+                gteamMember.map((candidate,index)=>{
+                    greentable = greentable + `<tr id="greenteam">`;
+                    greentable = greentable + `<td>${candidate.name}</td>`;
+                    greentable = greentable + `<td>${candidate.age}</td>`;
+                    greentable = greentable + `<td>${candidate.address}</td>`;
+                    greentable = greentable + `<td>${candidate.city}</td>`;   
+                    greentable += `</tr>`;
+                });
+                document.getElementById("green").innerHTML = greentable;
+            }
+            function orangeviewdata(oteamMember){
+                var orangetable =" ";
+                document.getElementById("orange").innerHTML = '';
+                oteamMember.map((candidate,index)=>{
+                    orangetable = orangetable + `<tr>`;
+                    orangetable = orangetable + `<td>${candidate.name}</td>`;
+                    orangetable = orangetable + `<td>${candidate.age}</td>`;
+                    orangetable = orangetable + `<td>${candidate.address}</td>`;
+                    orangetable = orangetable + `<td>${candidate.city}</td>`;   
+                    orangetable += `</tr>`;
+                });
+                document.getElementById("orange").innerHTML = orangetable;
+            }
+            function yellowviewdata(yteamMember){
+                var yellowtable =" ";
+                document.getElementById("yellow").innerHTML = '';
+                yteamMember.map((candidate,index)=>{
+                    yellowtable = yellowtable + `<tr>`;
+                    yellowtable = yellowtable + `<td>${candidate.name}</td>`;
+                    yellowtable = yellowtable + `<td>${candidate.age}</td>`;
+                    yellowtable = yellowtable + `<td>${candidate.address}</td>`;
+                    yellowtable = yellowtable + `<td>${candidate.city}</td>`;   
+                    yellowtable += `</tr>`;
+                });
+                document.getElementById("yellow").innerHTML = yellowtable;
+            } */
+            function getfirstelement(){
+                var length = rteamMember.length;
+                if(length>0){
+                    console.log("First candidate: ",rteamMember[0])
+                }else{
+                    console.log("No records found");
+                }
+            }
+            function gettotalnumberofcandidates(){
+                console.log("Total number of candidates: ",rteamMember.length);
+            }
+            function lastelement(){
+                var length = rteamMember.length;
+                console.log("Last candidate: ",rteamMember[length-1]);
+            }
+            function searchdata(){
+                var candidate = returnCandidate();
+                var personName = document.getElementById("cName").value;
+                var result = rteamMember.find(rteamMember=>rteamMember.name===personName)
+                   console.log(result);              
+            }
+
+           function findData(){
+               var personName = document.getElementById("cName").value;
+               var result = rteamMember.filter(rteamMember=>rteamMember.name===personName)
+                   console.log(result);
+            }
+            function fruits(){
+                for(i=0;i<5;i++){
+                    console.log(rteamMember[i]);
+                }
+            }
+
+        </script>
+        <link rel="stylesheet" href="./data.css"/>
+    </head>
+    <body>
+        <h2>Team members</h2>
+       <label> Name:</label> <input type="text" id="name"/>
+        <label>Age:</label> <input type="text" id="age"/>
+        <label>Address:</label> <input type="text" id="addr"/>
+        <label>City:</label> <select id="city">
+            <option value="0">..select</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Coimbatore">Coimbatore</option>
+            <option value="Trichy">Trichy</option>
+            <option value="Ariyalur">Ariyalur</option>
+            </select> 
+        <label>Gender:</label>
+        <label>Male</label> <input type="radio" id="m" name="gender" value="male" onclick="radio(this.value)"> 
+        <label>Female</label> <input type="radio" id="f" name="gender"  value="female" onclick="radio(this.value)">
+        <label>Others</label> <input type="radio" id="o" name="gender"  value="others" onclick="radio(this.value)">
+        <br>
+        <label>Qualification:</label>
+        <label>10th</label>
+        <input type="checkbox" name="qual" value="10th">
+        <label>12th</label>
+        <input type="checkbox" name="qual" value="12th">
+        <label>Diploma</label>
+        <input type="checkbox" name="qual" value="Diploma">
+        <label>B.E</label>
+        <input type="checkbox" name="qual" value="B.E">
+
+
+        <input type="button" value="R" onclick="Raddmember()"/>
+        <input type="button" value="G" onclick="Gaddmember()"/>
+        <input type="button" value="O" onclick="Oaddmember()"/>
+        <input type="button" value="Y" onclick="Yaddmember()"/>
+        <br></br>
+        <input type="button" value="First candidate" onclick="getfirstelement()"/>
+        <input type="button" value="Total number of candidates" onclick=" gettotalnumberofcandidates()"/>
+        <input type="button" value="Last candidate" onclick="lastelement()"/>
+
+        <input type="text" placeholder="Candidate name" id="cName"/>
+        <input type="button" value="search" onclick="findData()"/>
+        <input type="button" value="forloop" onclick="fruits()"/>
+
+         <br></br>
+
+
+
+        <table class="normal-table" id="table1" cellpadding="0" cellspacing="0">
+          <thead>
+            <h3>Red Team</h3>
+            <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Gender</th>
+            <th>Qualification</th>
+            <th>Action</th>
+            </tr>
+          </thead>  
+          <tbody id="red"></tbody>
+        </table>
+        <table class="normal-table" id="table2" cellpadding="0" cellspacing="0">
+            <thead>
+                <h3>Green team</h3>
+              <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>Action</th>
+              </tr>
+            </thead>  
+            <tbody id="green"></tbody>
+          </table>
+          <table class="normal-table" id="table3" cellpadding="0" cellspacing="0">
+            <thead>
+                <h3>Orange team</h3>
+              <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>Action/th>
+              </tr>
+            </thead>  
+            <tbody id="orange"></tbody>
+          </table>
+          <table class="normal-table" id="table4" cellpadding="0" cellspacing="0">
+            <thead>
+                <h3>Yellow team</h3>
+              <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>Action/th>
+              </tr>
+            </thead>  
+            <tbody id="yellow"></tbody>
+          </table>
+    </body>
+</html>
